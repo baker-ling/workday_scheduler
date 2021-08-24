@@ -1,6 +1,6 @@
 // Page elements that JS interacts with
 const currentDaySpan = $('#currentDay');
-const timeBlockContainer = $('#container');
+const timeBlockContainer = $('.container');
 
 // Constants for the start of the workday and the end of the workday
 const START_OF_WORKDAY = 9;
@@ -31,7 +31,7 @@ function displaySchedule() {
 
         // add hour column to row
         $('<div></div>', {
-            'class': 'col-1'
+            'class': 'hour col-1'
         }).text(i.toString() + ':00').appendTo(row);
 
         // add plans ('description') to row
@@ -44,10 +44,11 @@ function displaySchedule() {
             .appendTo(row);
         
         // add save button to row
-        $('<div></div>', {
-            'class': 'saveBtn col-1',
+        $('<button></button>', {
+            'class': 'saveBtn btn col-1',
+            'type': 'button',
             'data-hour': i
-        })//.text('💾')
+        }).text('💾')
             .on('click', saveScheduleItem)
             .appendTo(row);
         
@@ -57,7 +58,16 @@ function displaySchedule() {
 }
 
 function saveScheduleItem(event) {
-    
+    // get hour from event target
+    const hour = parseInt(event.target.dataset.hour);
+
+    // update array used to contain global state
+    schedule[hour] = $(`#tb${hour}>textarea.description`).val();
+
+    // update localStorage
+    localStorage.setItem('schedule', JSON.stringify(schedule));
+
+    // console.log(`Updated ${hour}:00`)
 }
 
 init();

@@ -48,7 +48,7 @@ function displaySchedule() {
             'class': 'saveBtn btn col-1',
             'type': 'button',
             'data-hour': i
-        }).text('💾')
+        }).text('Save')
             .on('click', saveScheduleItem)
             .appendTo(row);
         
@@ -67,7 +67,9 @@ function saveScheduleItem(event) {
     // update localStorage
     localStorage.setItem('schedule', JSON.stringify(schedule));
 
-    // console.log(`Updated ${hour}:00`)
+    // display toast message
+    $('.toast-body').html(`Saved plans for ${hour}:00&ndash;${hour+1}:00!`);
+    $('.toast').toast('show');
 }
 
 init();

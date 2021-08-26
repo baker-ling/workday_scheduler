@@ -28,6 +28,22 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
+
+    <div aria-live="polite" aria-atomic="true" >
+      <div class="toast" data-delay="1500">
+        <div class="toast-header">
+          <strong class="mr-auto">Save successful!</strong>
+          <small></small>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body">
+          Saved plans for XX:00&ndash;YY:00
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <!-- Timeblocks go here -->
       <!-- <div id="tbX" class="row time-block">
@@ -38,9 +54,12 @@
       
     </div>
 
+    
+
     <footer class="m-5 text-center text-muted font-weight-light t">All your workday are belong to us.</footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/script.js"></script>
   </body>
